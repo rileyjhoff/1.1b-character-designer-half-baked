@@ -9,8 +9,8 @@ const reportEl = document.getElementById('report');
 const catchphrasesEl = document.getElementById('catchphrases');
 const catchphraseInput = document.getElementById('catchphrase-input');
 const catchphraseButton = document.getElementById('catchphrase-button');
-const resetEl = document.getElementById('reset-container');
-const resetButton = document.getElementById('reset-button');
+const resetCatchphrasesEl = document.getElementById('reset-container');
+const resetCatchphrasesButton = document.getElementById('reset-catchphrases');
 const nameEl = document.getElementById('name');
 const nameInput = document.getElementById('name-input');
 const nameButton = document.getElementById('name-button');
@@ -71,7 +71,7 @@ catchphraseButton.addEventListener('click', () => {
     displayResetButton();
 });
 
-resetButton.addEventListener('click', () => {
+resetCatchphrasesButton.addEventListener('click', () => {
     resetCatchphrases();
 });
 
@@ -102,14 +102,14 @@ function displayCatchphrases() {
 
 function displayResetButton() {
     if (catchphrasesEl.textContent !== ''){
-        resetEl.classList.remove('hide');
+        resetCatchphrasesEl.classList.remove('hide');
     }
 }
 
 function resetCatchphrases() {
     catchphrasesEl.textContent = '';
     catchphrases = [];
-    resetEl.classList.add('hide');
+    resetCatchphrasesEl.classList.add('hide');
 }
 
 function displayName() {
@@ -118,4 +118,7 @@ function displayName() {
     nameEl.textContent = name;
     nameInput.value = '';
     nameButton.textContent = 'Change';
+    if (nameEl.textContent === '') {
+        nameButton.textContent = 'Add';
+    }
 }
