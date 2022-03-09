@@ -9,6 +9,8 @@ const reportEl = document.getElementById('report');
 const catchphrasesEl = document.getElementById('catchphrases');
 const catchphraseInput = document.getElementById('catchphrase-input');
 const catchphraseButton = document.getElementById('catchphrase-button');
+const resetEl = document.getElementById('reset-container');
+const resetButton = document.getElementById('reset-button');
 
 // set state for how many times the user changes the head, middle, and bottom
 let head = 0;
@@ -63,6 +65,7 @@ catchphraseButton.addEventListener('click', () => {
     catchphraseInput.value = '';
     // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
     displayCatchphrases();
+    displayResetCatchphrases();
 });
 
 // functions
@@ -83,5 +86,11 @@ function displayCatchphrases() {
         div.textContent = catchphrase;
         // and append that HTML element to the cleared-out DOM
         catchphrasesEl.append(div);
+    }
+}
+
+function displayResetCatchphrases() {
+    if (catchphrasesEl.textContent !== ''){
+        resetEl.classList.remove('hide');
     }
 }
