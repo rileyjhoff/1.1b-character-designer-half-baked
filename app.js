@@ -84,6 +84,10 @@ resetNameButton.addEventListener('click', () => {
     resetName();
 });
 
+nameInput.addEventListener('input', () => {
+    nameButton.disabled = false;
+});
+
 // functions
 function displayStats() {
     // text content of the reportEl to tell the user how many times they've changed each piece of the state
@@ -124,6 +128,7 @@ function displayName() {
     nameInput.value = '';
     nameButton.textContent = 'Change';
     resetNameButton.classList.remove('hide');
+    nameButton.disabled = true;
     if (nameEl.textContent === '') {
         nameButton.textContent = 'Add';
         resetNameButton.classList.add('hide');
@@ -135,5 +140,5 @@ function resetName() {
     nameInput.value = '';
     nameButton.textContent = 'Add';
     resetNameButton.classList.add('hide');
-    nameButton.disable = false;
+    nameButton.disabled = false;
 }
