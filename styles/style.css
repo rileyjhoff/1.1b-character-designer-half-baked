@@ -140,7 +140,11 @@ main {
     text-align: center;
 }
 
-#reset {
+.hide {
+    /* display: none; */
+}
+
+#reset-button {
     display: flex;
     margin: 10px auto 5px;
 }
