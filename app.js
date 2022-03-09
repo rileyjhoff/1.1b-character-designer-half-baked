@@ -9,11 +9,12 @@ const reportEl = document.getElementById('report');
 const catchphrasesEl = document.getElementById('catchphrases');
 const catchphraseInput = document.getElementById('catchphrase-input');
 const catchphraseButton = document.getElementById('catchphrase-button');
-const resetCatchphrasesEl = document.getElementById('reset-container');
+const resetCatchphrasesEl = document.getElementById('reset-catchphrases-container');
 const resetCatchphrasesButton = document.getElementById('reset-catchphrases');
 const nameEl = document.getElementById('name');
 const nameInput = document.getElementById('name-input');
 const nameButton = document.getElementById('name-button');
+const resetNameButton = document.getElementById('reset-name');
 
 // set state for how many times the user changes the head, middle, and bottom
 let head = 0;
@@ -79,6 +80,10 @@ nameButton.addEventListener('click', () => {
     displayName();
 });
 
+resetNameButton.addEventListener('click', () => {
+    resetName();
+});
+
 // functions
 function displayStats() {
     // text content of the reportEl to tell the user how many times they've changed each piece of the state
@@ -118,7 +123,17 @@ function displayName() {
     nameEl.textContent = name;
     nameInput.value = '';
     nameButton.textContent = 'Change';
+    resetNameButton.classList.remove('hide');
     if (nameEl.textContent === '') {
         nameButton.textContent = 'Add';
+        resetNameButton.classList.add('hide');
     }
+}
+
+function resetName() {
+    nameEl.textContent = '';
+    nameInput.value = '';
+    nameButton.textContent = 'Add';
+    resetNameButton.classList.add('hide');
+    nameButton.disable = false;
 }
