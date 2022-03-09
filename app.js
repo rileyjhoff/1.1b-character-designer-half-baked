@@ -14,6 +14,7 @@ const catchphraseButton = document.getElementById('catchphrase-button');
 let head = 0;
 let middle = 0;
 let bottom = 0;
+reportEl.onload = displayStats();
 // set state for all of the character's catchphrases
 const catchphrases = [];
 
@@ -64,6 +65,7 @@ catchphraseButton.addEventListener('click', () => {
     displayCatchphrases();
 });
 
+// functions
 function displayStats() {
     // text content of the reportEl to tell the user how many times they've changed each piece of the state
     reportEl.textContent = `You've changed the head ${head} times. You've changed the middle ${middle} times. You've changed the bottom ${bottom} times.`;
