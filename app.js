@@ -65,7 +65,7 @@ catchphraseButton.addEventListener('click', () => {
     catchphraseInput.value = '';
     // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
     displayCatchphrases();
-    displayResetCatchphrases();
+    displayResetButton();
 });
 
 // functions
@@ -89,8 +89,13 @@ function displayCatchphrases() {
     }
 }
 
-function displayResetCatchphrases() {
+function displayResetButton() {
     if (catchphrasesEl.textContent !== ''){
         resetEl.classList.remove('hide');
     }
+}
+
+function resetCatchphrases() {
+    catchphrasesEl.textContent = '';
+    resetEl.classList.add('hide');
 }
