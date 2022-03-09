@@ -117,4 +117,5 @@ function displayName() {
     let name = nameInput.value;
     nameEl.textContent = name;
     nameInput.value = '';
+    nameButton.textContent = 'Change';
 }
