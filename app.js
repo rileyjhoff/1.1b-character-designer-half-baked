@@ -18,7 +18,7 @@ let middle = 0;
 let bottom = 0;
 reportEl.onload = displayStats();
 // set state for all of the character's catchphrases
-const catchphrases = [];
+let catchphrases = [];
 
 // event listeners
 headDropdown.addEventListener('change', () => {
@@ -68,6 +68,10 @@ catchphraseButton.addEventListener('click', () => {
     displayResetButton();
 });
 
+resetButton.addEventListener('click', () => {
+    resetCatchphrases();
+});
+
 // functions
 function displayStats() {
     // text content of the reportEl to tell the user how many times they've changed each piece of the state
@@ -97,5 +101,6 @@ function displayResetButton() {
 
 function resetCatchphrases() {
     catchphrasesEl.textContent = '';
+    catchphrases = [];
     resetEl.classList.add('hide');
 }
