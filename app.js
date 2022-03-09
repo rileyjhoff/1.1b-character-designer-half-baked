@@ -11,6 +11,9 @@ const catchphraseInput = document.getElementById('catchphrase-input');
 const catchphraseButton = document.getElementById('catchphrase-button');
 const resetEl = document.getElementById('reset-container');
 const resetButton = document.getElementById('reset-button');
+const nameEl = document.getElementById('name');
+const nameInput = document.getElementById('name-input');
+const nameButton = document.getElementById('name-button');
 
 // set state for how many times the user changes the head, middle, and bottom
 let head = 0;
