@@ -75,6 +75,10 @@ resetButton.addEventListener('click', () => {
     resetCatchphrases();
 });
 
+nameButton.addEventListener('click', () => {
+    displayName();
+});
+
 // functions
 function displayStats() {
     // text content of the reportEl to tell the user how many times they've changed each piece of the state
@@ -106,4 +110,11 @@ function resetCatchphrases() {
     catchphrasesEl.textContent = '';
     catchphrases = [];
     resetEl.classList.add('hide');
+}
+
+function displayName() {
+    nameEl.textContent = '';
+    let name = nameInput.value;
+    nameEl.textContent = name;
+    nameInput.value = '';
 }
