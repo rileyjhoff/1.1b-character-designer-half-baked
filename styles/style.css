@@ -123,7 +123,7 @@ main {
 .character {
     display: grid;
     grid-template-rows: 1.5fr 1fr 2fr;
-    height: 700px;
+    height: 400px;
     width: 200px;
 }
 
