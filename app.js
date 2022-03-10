@@ -19,6 +19,9 @@ const resetAllButton = document.getElementById('reset-all');
 const headPleaseSelect = document.getElementById('head-select');
 const middlePleaseSelect = document.getElementById('middle-select');
 const bottomPleaseSelect = document.getElementById('bottom-select');
+const resetHeadButton = document.getElementById('reset-head');
+const resetMiddleButton = document.getElementById('reset-middle');
+const resetBottomButton = document.getElementById('reset-bottom');
 
 // set state for how many times the user changes the head, middle, and bottom
 let head = 0;
@@ -98,6 +101,18 @@ resetAllButton.addEventListener('click', () => {
     resetAll();
 });
 
+resetHeadButton.addEventListener('click', () => {
+    resetHead();
+});
+
+resetMiddleButton.addEventListener('click', () => {
+
+});
+
+resetBottomButton.addEventListener('click', () => {
+
+});
+
 // functions
 function displayStats() {
     // text content of the reportEl to tell the user how many times they've changed each piece of the state
@@ -157,14 +172,28 @@ function clearName() {
 function resetAll() {
     clearName();
     clearCatchphrases();
+    resetHead();
+    resetMiddle();
+    resetBottom();
+}
+
+function resetHead() {
     head = 0;
-    middle = 0;
-    bottom = 0;
-    displayStats();
     headDropdown.value = 'select';
-    middleDropdown.value = 'select';
-    bottomDropdown.value = 'select';
     headEl.style.backgroundImage = '';
+    displayStats();
+}
+
+function resetMiddle() {
+    middle = 0;
+    middleDropdown.value = 'select';
     middleEl.style.backgroundImage = '';
+    displayStats();
+}
+
+function resetBottom() {
+    bottom = 0;
+    bottomDropdown.value = 'select';
     bottomEl.style.backgroundImage = '';
+    displayStats();
 }
