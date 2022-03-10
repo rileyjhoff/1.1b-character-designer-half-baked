@@ -15,18 +15,25 @@ const nameEl = document.getElementById('name');
 const nameInput = document.getElementById('name-input');
 const nameButton = document.getElementById('name-button');
 const clearNameButton = document.getElementById('clear-name');
+const resetAllButton = document.getElementById('reset-all');
+const headPleaseSelect = document.getElementById('head-select');
+const middlePleaseSelect = document.getElementById('middle-select');
+const bottomPleaseSelect = document.getElementById('bottom-select');
 
 // set state for how many times the user changes the head, middle, and bottom
 let head = 0;
 let middle = 0;
 let bottom = 0;
-reportEl.onload = displayStats();
 // set state for all of the character's catchphrases
 let catchphrases = [];
+// misc initial state
+reportEl.onload = displayStats();
+headPleaseSelect.disabled = true;
+middlePleaseSelect.disabled = true;
+bottomPleaseSelect.disabled = true;
 
 // event listeners
 headDropdown.addEventListener('change', () => {
-    document.getElementById('head-select').disabled = true;
     // get the value of the head dropdown
     let headSelection = headDropdown.value;
     // increment the head change count state
@@ -37,9 +44,7 @@ headDropdown.addEventListener('change', () => {
     displayStats();
 });
 
-
 middleDropdown.addEventListener('change', () => {
-    document.getElementById('middle-select').disabled = true;
     // get the value of the middle dropdown
     let middleSelection = middleDropdown.value;
     // increment the middle change count state
@@ -50,9 +55,7 @@ middleDropdown.addEventListener('change', () => {
     displayStats();
 });
 
-
 bottomDropdown.addEventListener('change', () => {
-    document.getElementById('bottom-select').disabled = true;
     // get the value of the bottom dropdown
     let bottomSelection = bottomDropdown.value;
     // increment the bottom change count state
@@ -89,6 +92,10 @@ clearNameButton.addEventListener('click', () => {
 
 nameInput.addEventListener('input', () => {
     nameButton.disabled = false;
+});
+
+resetAllButton.addEventListener('click', () => {
+    resetAll();
 });
 
 // functions
@@ -144,4 +151,19 @@ function clearName() {
     nameButton.textContent = 'Add';
     clearNameButton.classList.add('hide');
     nameButton.disabled = false;
+}
+
+function resetAll() {
+    clearName();
+    resetCatchphrases();
+    head = 0;
+    middle = 0;
+    bottom = 0;
+    displayStats();
+    headDropdown.value = 'select';
+    middleDropdown.value = 'select';
+    bottomDropdown.value = 'select';
+    headEl.style.backgroundImage = '';
+    middleEl.style.backgroundImage = '';
+    bottomEl.style.backgroundImage = '';
 }
