@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/home.css">
-    <title>Document</title>
+    <title>Character Designer</title>
 </head>
 
 <body>
@@ -18,45 +18,66 @@
         <div class="left">
             <div class="picker">
                 <label>
+                    Name
+                    <input id="name-input">
+                    <button id="name-button">Add</button>
+                    <button class="hide" id="clear-name">Clear</button>
+                </label>                
+                <label>
                     Head
                     <select id="head-dropdown">
+                        <option value="select" id="head-select">Please Select an Option</option>
                         <option value="bird">Bird</option>
                         <option value="duck">Duck</option>
                         <option value="dog">Dog</option>
                         <option value="horse">Horse</option>
                     </select>
+                    <button class="hide" id="clear-head">Clear</button>
                 </label>
                 <label>
                     Middle
                     <select id="middle-dropdown">
+                        <option value="select" id="middle-select">Please Select an Option</option>
                         <option value="blue">Blue</option>
                         <option value="dress">Fancy</option>
                         <option value="pink">Pink</option>
                         <option value="red">Red</option>
                     </select>
+                    <button class="hide" id="clear-middle">Clear</button>
                 </label>
                 <label>
                     Bottom
                     <select id="bottom-dropdown">
+                        <option value="select" id="bottom-select">Please Select an Option</option>
                         <option value="leg">Single Leg</option>
                         <option value="white">White Pants</option>
                         <option value="blue">Blue Jeans</option>
                     </select>
+                    <button class="hide" id="clear-bottom">Clear</button>
                 </label>
                 <label>
                     Add a catch phrase
                     <input id="catchphrase-input" />
                     <button id="catchphrase-button">Add</button>
                 </label>
+                <div class="" id="reset-all-container">
+                    <button id="reset-all">Reset All</button>
+                </div>
             </div>
             <div id="stats">
                 <p id="report"></p>
                 <div id="catchphrases">
                     
                 </div>
+                <div class="hide" id="clear-catchphrases-container">
+                    <button id="clear-catchphrases">Clear Catchphrases</button>
+                </div>
             </div>
         </div>
         <div class="right">
+            <div class="name-container">
+                <h1 id="name"></h1>
+            </div>
             <div class="character">
                 <div class="bg head" id="head">
                 </div>
@@ -65,7 +86,6 @@
                 <div class="bg bottom" id="bottom">
                 </div>
             </div>
-            
         </div>
     </main>
     <script type="module" src="./app.js"></script>
