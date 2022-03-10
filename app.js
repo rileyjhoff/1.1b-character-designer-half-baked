@@ -19,9 +19,9 @@ const resetAllButton = document.getElementById('reset-all');
 const headPleaseSelect = document.getElementById('head-select');
 const middlePleaseSelect = document.getElementById('middle-select');
 const bottomPleaseSelect = document.getElementById('bottom-select');
-const resetHeadButton = document.getElementById('reset-head');
-const resetMiddleButton = document.getElementById('reset-middle');
-const resetBottomButton = document.getElementById('reset-bottom');
+const clearHeadButton = document.getElementById('clear-head');
+const clearMiddleButton = document.getElementById('clear-middle');
+const clearBottomButton = document.getElementById('clear-bottom');
 
 // set state for how many times the user changes the head, middle, and bottom
 let head = 0;
@@ -49,7 +49,7 @@ nameInput.addEventListener('input', () => {
 });
 
 headDropdown.addEventListener('change', () => {
-    resetHeadButton.classList.remove('hide');
+    clearHeadButton.classList.remove('hide');
     // get the value of the head dropdown
     let headSelection = headDropdown.value;
     // increment the head change count state
@@ -60,12 +60,12 @@ headDropdown.addEventListener('change', () => {
     displayStats();
 });
 
-resetHeadButton.addEventListener('click', () => {
-    resetHead();
+clearHeadButton.addEventListener('click', () => {
+    clearHead();
 });
 
 middleDropdown.addEventListener('change', () => {
-    resetMiddleButton.classList.remove('hide');
+    clearMiddleButton.classList.remove('hide');
     // get the value of the middle dropdown
     let middleSelection = middleDropdown.value;
     // increment the middle change count state
@@ -76,12 +76,12 @@ middleDropdown.addEventListener('change', () => {
     displayStats();
 });
 
-resetMiddleButton.addEventListener('click', () => {
-    resetMiddle();
+clearMiddleButton.addEventListener('click', () => {
+    clearMiddle();
 });
 
 bottomDropdown.addEventListener('change', () => {
-    resetBottomButton.classList.remove('hide');
+    clearBottomButton.classList.remove('hide');
     // get the value of the bottom dropdown
     let bottomSelection = bottomDropdown.value;
     // increment the bottom change count state
@@ -92,8 +92,8 @@ bottomDropdown.addEventListener('change', () => {
     displayStats();
 });
 
-resetBottomButton.addEventListener('click', () => {
-    resetBottom();
+clearBottomButton.addEventListener('click', () => {
+    clearBottom();
 });
 
 catchphraseButton.addEventListener('click', () => {
@@ -175,31 +175,29 @@ function clearName() {
 function resetAll() {
     clearName();
     clearCatchphrases();
-    resetHead();
-    resetMiddle();
-    resetBottom();
+    clearHead();
+    clearMiddle();
+    clearBottom();
+    head = 0;
+    middle = 0;
+    bottom = 0;
+    displayStats();
 }
 
-function resetHead() {
-    head = 0;
+function clearHead() {
     headDropdown.value = 'select';
     headEl.style.backgroundImage = '';
-    resetHeadButton.classList.add('hide');
-    displayStats();
+    clearHeadButton.classList.add('hide');
 }
 
-function resetMiddle() {
-    middle = 0;
+function clearMiddle() {
     middleDropdown.value = 'select';
     middleEl.style.backgroundImage = '';
-    resetMiddleButton.classList.add('hide');
-    displayStats();
+    clearMiddleButton.classList.add('hide');
 }
 
-function resetBottom() {
-    bottom = 0;
+function clearBottom() {
     bottomDropdown.value = 'select';
     bottomEl.style.backgroundImage = '';
-    resetBottomButton.classList.add('hide');
-    displayStats();
+    clearBottomButton.classList.add('hide');
 }
