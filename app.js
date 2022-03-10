@@ -142,6 +142,7 @@ function displayName() {
     if (nameEl.textContent === '') {
         nameButton.textContent = 'Add';
         clearNameButton.classList.add('hide');
+        nameButton.disabled = false;
     }
 }
 
@@ -155,7 +156,7 @@ function clearName() {
 
 function resetAll() {
     clearName();
-    resetCatchphrases();
+    clearCatchphrases();
     head = 0;
     middle = 0;
     bottom = 0;
