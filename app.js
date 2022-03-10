@@ -36,7 +36,20 @@ middlePleaseSelect.disabled = true;
 bottomPleaseSelect.disabled = true;
 
 // event listeners
+nameButton.addEventListener('click', () => {
+    displayName();
+});
+
+clearNameButton.addEventListener('click', () => {
+    clearName();
+});
+
+nameInput.addEventListener('input', () => {
+    nameButton.disabled = false;
+});
+
 headDropdown.addEventListener('change', () => {
+    resetHeadButton.classList.remove('hide');
     // get the value of the head dropdown
     let headSelection = headDropdown.value;
     // increment the head change count state
@@ -47,7 +60,12 @@ headDropdown.addEventListener('change', () => {
     displayStats();
 });
 
+resetHeadButton.addEventListener('click', () => {
+    resetHead();
+});
+
 middleDropdown.addEventListener('change', () => {
+    resetMiddleButton.classList.remove('hide');
     // get the value of the middle dropdown
     let middleSelection = middleDropdown.value;
     // increment the middle change count state
@@ -58,7 +76,12 @@ middleDropdown.addEventListener('change', () => {
     displayStats();
 });
 
+resetMiddleButton.addEventListener('click', () => {
+    resetMiddle();
+});
+
 bottomDropdown.addEventListener('change', () => {
+    resetBottomButton.classList.remove('hide');
     // get the value of the bottom dropdown
     let bottomSelection = bottomDropdown.value;
     // increment the bottom change count state
@@ -67,6 +90,10 @@ bottomDropdown.addEventListener('change', () => {
     bottomEl.style.backgroundImage = `url(assets/${bottomSelection}-pants.png)`;
     // update the stats to show the new count (call displayStats() to do this work)
     displayStats();
+});
+
+resetBottomButton.addEventListener('click', () => {
+    resetBottom();
 });
 
 catchphraseButton.addEventListener('click', () => {
@@ -81,36 +108,12 @@ catchphraseButton.addEventListener('click', () => {
     displayClearCatchphrasesButton();
 });
 
-clearCatchphrasesButton.addEventListener('click', () => {
-    clearCatchphrases();
-});
-
-nameButton.addEventListener('click', () => {
-    displayName();
-});
-
-clearNameButton.addEventListener('click', () => {
-    clearName();
-});
-
-nameInput.addEventListener('input', () => {
-    nameButton.disabled = false;
-});
-
 resetAllButton.addEventListener('click', () => {
     resetAll();
 });
 
-resetHeadButton.addEventListener('click', () => {
-    resetHead();
-});
-
-resetMiddleButton.addEventListener('click', () => {
-
-});
-
-resetBottomButton.addEventListener('click', () => {
-
+clearCatchphrasesButton.addEventListener('click', () => {
+    clearCatchphrases();
 });
 
 // functions
@@ -181,6 +184,7 @@ function resetHead() {
     head = 0;
     headDropdown.value = 'select';
     headEl.style.backgroundImage = '';
+    resetHeadButton.classList.add('hide');
     displayStats();
 }
 
@@ -188,6 +192,7 @@ function resetMiddle() {
     middle = 0;
     middleDropdown.value = 'select';
     middleEl.style.backgroundImage = '';
+    resetMiddleButton.classList.add('hide');
     displayStats();
 }
 
@@ -195,5 +200,6 @@ function resetBottom() {
     bottom = 0;
     bottomDropdown.value = 'select';
     bottomEl.style.backgroundImage = '';
+    resetBottomButton.classList.add('hide');
     displayStats();
 }
