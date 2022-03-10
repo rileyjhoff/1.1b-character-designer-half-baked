@@ -26,6 +26,7 @@ let catchphrases = [];
 
 // event listeners
 headDropdown.addEventListener('change', () => {
+    document.getElementById('head-select').disabled = true;
     // get the value of the head dropdown
     let headSelection = headDropdown.value;
     // increment the head change count state
@@ -38,6 +39,7 @@ headDropdown.addEventListener('change', () => {
 
 
 middleDropdown.addEventListener('change', () => {
+    document.getElementById('middle-select').disabled = true;
     // get the value of the middle dropdown
     let middleSelection = middleDropdown.value;
     // increment the middle change count state
@@ -50,6 +52,7 @@ middleDropdown.addEventListener('change', () => {
 
 
 bottomDropdown.addEventListener('change', () => {
+    document.getElementById('bottom-select').disabled = true;
     // get the value of the bottom dropdown
     let bottomSelection = bottomDropdown.value;
     // increment the bottom change count state
