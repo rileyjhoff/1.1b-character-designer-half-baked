@@ -14,7 +14,7 @@ const resetCatchphrasesButton = document.getElementById('reset-catchphrases');
 const nameEl = document.getElementById('name');
 const nameInput = document.getElementById('name-input');
 const nameButton = document.getElementById('name-button');
-const resetNameButton = document.getElementById('reset-name');
+const clearNameButton = document.getElementById('clear-name');
 
 // set state for how many times the user changes the head, middle, and bottom
 let head = 0;
@@ -83,8 +83,8 @@ nameButton.addEventListener('click', () => {
     displayName();
 });
 
-resetNameButton.addEventListener('click', () => {
-    resetName();
+clearNameButton.addEventListener('click', () => {
+    clearName();
 });
 
 nameInput.addEventListener('input', () => {
@@ -130,18 +130,18 @@ function displayName() {
     nameEl.textContent = name;
     nameInput.value = '';
     nameButton.textContent = 'Change';
-    resetNameButton.classList.remove('hide');
+    clearNameButton.classList.remove('hide');
     nameButton.disabled = true;
     if (nameEl.textContent === '') {
         nameButton.textContent = 'Add';
-        resetNameButton.classList.add('hide');
+        clearNameButton.classList.add('hide');
     }
 }
 
-function resetName() {
+function clearName() {
     nameEl.textContent = '';
     nameInput.value = '';
     nameButton.textContent = 'Add';
-    resetNameButton.classList.add('hide');
+    clearNameButton.classList.add('hide');
     nameButton.disabled = false;
 }
