@@ -9,8 +9,8 @@ const reportEl = document.getElementById('report');
 const catchphrasesEl = document.getElementById('catchphrases');
 const catchphraseInput = document.getElementById('catchphrase-input');
 const catchphraseButton = document.getElementById('catchphrase-button');
-const resetCatchphrasesEl = document.getElementById('reset-catchphrases-container');
-const resetCatchphrasesButton = document.getElementById('reset-catchphrases');
+const clearCatchphrasesEl = document.getElementById('clear-catchphrases-container');
+const clearCatchphrasesButton = document.getElementById('clear-catchphrases');
 const nameEl = document.getElementById('name');
 const nameInput = document.getElementById('name-input');
 const nameButton = document.getElementById('name-button');
@@ -75,11 +75,11 @@ catchphraseButton.addEventListener('click', () => {
     catchphraseInput.value = '';
     // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
     displayCatchphrases();
-    displayResetButton();
+    displayClearCatchphrasesButton();
 });
 
-resetCatchphrasesButton.addEventListener('click', () => {
-    resetCatchphrases();
+clearCatchphrasesButton.addEventListener('click', () => {
+    clearCatchphrases();
 });
 
 nameButton.addEventListener('click', () => {
@@ -119,16 +119,16 @@ function displayCatchphrases() {
     }
 }
 
-function displayResetButton() {
+function displayClearCatchphrasesButton() {
     if (catchphrasesEl.textContent !== ''){
-        resetCatchphrasesEl.classList.remove('hide');
+        clearCatchphrasesEl.classList.remove('hide');
     }
 }
 
-function resetCatchphrases() {
+function clearCatchphrases() {
     catchphrasesEl.textContent = '';
     catchphrases = [];
-    resetCatchphrasesEl.classList.add('hide');
+    clearCatchphrasesEl.classList.add('hide');
 }
 
 function displayName() {

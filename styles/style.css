@@ -144,7 +144,7 @@ main {
     display: none;
 }
 
-#reset-catchphrases {
+#clear-catchphrases {
     display: flex;
     margin: 10px auto 5px;
 }
